@@ -12,12 +12,12 @@ export default function Hero() {
           ESTABLISHED {COMPANY_INFO.foundation} / SYSTEM ARCHITECTURE
         </span>
         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-8 tracking-tighter">
-          우연에 기대지 않는<br />
-          <span className="text-zinc-500">설계된 비즈니스의 성공.</span>
+          RyuisLabs <br />
+          <span className="text-zinc-500">이 세상의 모든 과정을 기록합니다.</span>
         </h1>
         <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light">
-          당사는 본질적 논리와 인과 관계를 바탕으로 지속 가능한 시스템을 구축합니다. 
-          단순한 개발을 넘어, 비즈니스의 구동 원리를 규격화하고 정당성을 증명합니다.
+          당사는 본질적 논리와 인과 관계를 바탕으로 지속 가능한 시스템을 구축합니다.<br />
+          단순한 결과를 넘어, 모든 개인의 흔적을 기록하고 규격화하여서 그 노력의 객관성을 증명합니다.
         </p>
       </div>
     </section>

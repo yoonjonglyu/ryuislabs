@@ -4,15 +4,15 @@ export const COMPANY_INFO = {
   slogan: 'Logical Determinism in Systems',
   email: 'official@ryuis.labs',
   address: 'Seoul, Republic of Korea',
-  foundation: '2024',
+  foundation: '2026',
 };
 
 export const TECH_ASSETS = [
   {
     id: 'high-perf-arch',
-    label: '고성능 아키텍처',
+    label: '보장된 데이터 정합성',
     description:
-      '초당 수만 건의 트래픽을 견디는 SSG 기반의 정적 최적화 및 엣지 컴퓨팅 구조',
+      '신뢰 할 수 있는 데이터 흐름과 일관된 상태 관리를 통해 시스템의 무결성을 유지하는 아키텍처',
   },
   {
     id: 'logic-determinism',
