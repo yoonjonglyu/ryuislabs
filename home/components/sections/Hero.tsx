@@ -13,11 +13,11 @@ export default function Hero() {
         </span>
         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-8 tracking-tighter">
           RyuisLabs <br />
-          <span className="text-zinc-500">이 세상의 모든 과정을 기록합니다.</span>
+          <span className="text-zinc-500">모든 성취의 이면에는 치열한 과정이 존재합니다.</span>
         </h1>
         <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light">
-          당사는 본질적 논리와 인과 관계를 바탕으로 지속 가능한 시스템을 구축합니다.<br />
-          단순한 결과를 넘어, 모든 개인의 흔적을 기록하고 규격화하여서 그 노력의 객관성을 증명합니다.
+          RyuisLabs는 감성이나 우연에 기대지 않고, 본질적 논리와 인과 관계를 바탕으로<br />
+          인간의 노력과 비즈니스의 모든 과정을 정밀하게 기록하는 고성능 솔루션을 공급합니다.
         </p>
       </div>
     </section>
