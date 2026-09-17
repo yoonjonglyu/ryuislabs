@@ -308,8 +308,8 @@ export default function Page() {
             </h3>
             <p>공공·민간 프로젝트 협업, B2B 라이선스, 투자 및 멘토링 문의 모두 환영합니다.</p>
           </div>
-          <a href="mailto:yunjonglyu@gmail.com" className={`${styles.contactEmail} ${styles.mono}`}>
-            official@ryuis.labs
+          <a href="mailto:content@ryuislabs.com" className={`${styles.contactEmail} ${styles.mono}`}>
+            content@ryuislabs.com
           </a>
         </Reveal>
       </section>
