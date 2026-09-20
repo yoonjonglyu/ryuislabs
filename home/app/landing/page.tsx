@@ -14,7 +14,7 @@ type Entry = {
   accent: string;
   status: 'live' | 'soon';
   rating?: string;
-  href?: string;
+  href: string;
   external?: boolean;
 };
 
@@ -119,11 +119,10 @@ export default function ProductsLanding() {
                 : {};
               return (
                 <Wrapper
-                  key={e.key}
+                  href={'#'} key={e.key}
                   className={`${styles.card} ${e.status === 'soon' ? styles.cardSoon : ''} ${e.href ? styles.cardLinkable : ''}`}
                   style={{ ['--accent' as string]: e.accent }}
-                  {...wrapperProps}
-                >
+                  {...wrapperProps}                >
                   <div className={styles.cardTop}>
                     <span className={`${styles.ref} ${styles.mono}`}>{e.ref}</span>
                     {e.status === 'live' ? (
