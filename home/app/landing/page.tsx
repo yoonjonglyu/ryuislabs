@@ -28,7 +28,7 @@ const ENTRIES: Entry[] = [
     ref: 'PRODUCT_LINE',
     accent: '#7B6CFF',
     status: 'live',
-    href: '/landing/ability',
+    href: '/ability',
   },
   {
     key: 'memoflow',
@@ -40,8 +40,7 @@ const ENTRIES: Entry[] = [
     accent: '#4FA8E0',
     status: 'live',
     rating: '5.0★',
-    href: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.memo',
-    external: true,
+    href: '/landing/memoflow',
   },
   {
     key: 'seedvault',
@@ -52,6 +51,7 @@ const ENTRIES: Entry[] = [
     ref: 'STANDALONE_TOOL',
     accent: '#22D3C4',
     status: 'soon',
+    href: '/landing/seedvault',
   },
 ];
 
