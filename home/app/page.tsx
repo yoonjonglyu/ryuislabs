@@ -103,7 +103,8 @@ export default function Page() {
             RyuisLabs
           </div>
           <div className={`${styles.navLinks} ${styles.mono}`}>
-            <a href="#product">PRODUCT</a>
+            <a href="/landing">PRODUCTS</a>
+            <a href="#status">STATUS</a>
             <a href="#founder">FOUNDER</a>
             <a href="#contact">CONTACT</a>
           </div>
@@ -140,7 +141,7 @@ export default function Page() {
           className={`${styles.ctaRow} ${styles.heroReveal}`}
           style={{ opacity: heroVisible ? 1 : 0, transitionDelay: '0.4s' }}
         >
-          <a href="#product" className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}>
+          <a href="#status" className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}>
             제품 살펴보기 — RYUis : STATUS
           </a>
           <a href="#contact" className={`${styles.btn} ${styles.btnGhost} ${styles.mono}`}>
@@ -149,7 +150,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="product" className={`${styles.wrap} ${styles.section}`}>
+      <section id="status" className={`${styles.wrap} ${styles.section}`}>
         <Reveal className={styles.sectionHead}>
           <div className={`${styles.eyebrow} ${styles.mono}`}>FLAGSHIP MODULE / RYUis : STATUS</div>
           <h2>
