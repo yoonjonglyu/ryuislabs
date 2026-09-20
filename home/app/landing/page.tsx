@@ -28,7 +28,7 @@ const ENTRIES: Entry[] = [
     ref: 'PRODUCT_LINE',
     accent: '#7B6CFF',
     status: 'live',
-    href: '/ability',
+    href: '/landing/ability',
   },
   {
     key: 'memoflow',
