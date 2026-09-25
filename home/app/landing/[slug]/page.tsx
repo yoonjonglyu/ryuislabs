@@ -29,46 +29,48 @@ export default function ProductDetailPage() {
       />
 
       <section className={`${styles.hero} ${styles.wrap}`}>
-        <div className={`${styles.refRow} ${styles.mono}`}>
-          <span>{product.ref}</span>
-          {product.status === 'soon' && (
-            <>
-              <span className={styles.sep}>·</span>
-              <span className={styles.soonTag}>출시 임박</span>
-            </>
-          )}
-        </div>
-        <h1>{product.name}</h1>
-        <p className={styles.tagline}>{product.tagline}</p>
-
-        {product.status === 'live' && (
-          <div className={`${styles.statRow} ${styles.mono}`}>
-            <span className={styles.stat}>{product.rating}</span>
-            <span className={styles.statSep}>/</span>
-            <span className={styles.stat}>{product.reviews}</span>
-            <span className={styles.statSep}>/</span>
-            <span className={styles.stat}>{product.downloads}</span>
+        <div className={styles.heroHead}>
+          <div className={`${styles.refRow} ${styles.mono}`}>
+            <span>{product.ref}</span>
+            {product.status === 'soon' && (
+              <>
+                <span className={styles.sep}>·</span>
+                <span className={styles.soonTag}>출시 임박</span>
+              </>
+            )}
           </div>
-        )}
+          <h1>{product.name}</h1>
+          <p className={styles.tagline}>{product.tagline}</p>
 
-        <p className={styles.intro}>{product.intro}</p>
-
-        <div className={styles.ctaRow}>
-          {product.status === 'live' && product.playUrl ? (
-            <a
-              href={product.playUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}
-            >
-              Play 스토어에서 설치
-            </a>
-          ) : (
-            <span className={`${styles.btn} ${styles.btnDisabled} ${styles.mono}`}>곧 공개됩니다</span>
+          {product.status === 'live' && (
+            <div className={`${styles.statRow} ${styles.mono}`}>
+              <span className={styles.stat}>{product.rating}</span>
+              <span className={styles.statSep}>/</span>
+              <span className={styles.stat}>{product.reviews}</span>
+              <span className={styles.statSep}>/</span>
+              <span className={styles.stat}>{product.downloads}</span>
+            </div>
           )}
-          <Link href="/landing" className={`${styles.btn} ${styles.btnGhost} ${styles.mono}`}>
-            ← 전체 제품으로 돌아가기
-          </Link>
+
+          <p className={styles.intro}>{product.intro}</p>
+
+          <div className={styles.ctaRow}>
+            {product.status === 'live' && product.playUrl ? (
+              <a
+                href={product.playUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}
+              >
+                Play 스토어에서 설치
+              </a>
+            ) : (
+              <span className={`${styles.btn} ${styles.btnDisabled} ${styles.mono}`}>곧 공개됩니다</span>
+            )}
+            <Link href="/landing" className={`${styles.btn} ${styles.btnGhost} ${styles.mono}`}>
+              ← 전체 제품으로 돌아가기
+            </Link>
+          </div>
         </div>
       </section>
 

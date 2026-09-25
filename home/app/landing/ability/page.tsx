@@ -18,16 +18,18 @@ export default function AbilityHub() {
       />
 
       <section className={`${styles.hero} ${styles.wrap}`}>
-        <div className={`${styles.eyebrow} ${styles.mono}`}>PRODUCT LINE / ABILITY</div>
-        <h1>
-          모든 형태의 숙련을,
-          <br />
-          도구로 번역합니다.
-        </h1>
-        <p className={styles.sub}>
-          우주의 물리 법칙이든 도가의 수행이든 — 몰입이 향하는 방향은 다르지만 그 구조는 같습니다.
-          ABILITY는 서로 다른 세계관 위에서, 같은 원리로 작동하는 숙련의 도구들을 만듭니다.
-        </p>
+        <div className={styles.heroHead}>
+          <div className={`${styles.eyebrow} ${styles.mono}`}>PRODUCT LINE / ABILITY</div>
+          <h1>
+            모든 형태의 숙련을,
+            <br />
+            도구로 번역합니다.
+          </h1>
+          <p className={styles.sub}>
+            우주의 물리 법칙이든 도가의 수행이든 — 몰입이 향하는 방향은 다르지만 그 구조는 같습니다.
+            ABILITY는 서로 다른 세계관 위에서, 같은 원리로 작동하는 숙련의 도구들을 만듭니다.
+          </p>
+        </div>
       </section>
 
       <section className={`${styles.wrap} ${styles.section}`}>

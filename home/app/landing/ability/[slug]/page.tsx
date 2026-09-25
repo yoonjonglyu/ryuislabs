@@ -30,39 +30,41 @@ export default function AppDetailPage() {
       />
 
       <section className={`${styles.hero} ${styles.wrap}`}>
-        <div className={`${styles.refRow} ${styles.mono}`}>
-          <span>{app.ref}</span>
-          <span className={styles.sep}>·</span>
-          <span>{app.lineage}</span>
-        </div>
-        <h1>
-          {app.name}
-          {app.altName && <span className={styles.altName}> ({app.altName})</span>}
-        </h1>
-        <p className={styles.tagline}>{app.tagline}</p>
+        <div className={styles.heroHead}>
+          <div className={`${styles.refRow} ${styles.mono}`}>
+            <span>{app.ref}</span>
+            <span className={styles.sep}>·</span>
+            <span>{app.lineage}</span>
+          </div>
+          <h1>
+            {app.name}
+            {app.altName && <span className={styles.altName}> ({app.altName})</span>}
+          </h1>
+          <p className={styles.tagline}>{app.tagline}</p>
 
-        <div className={`${styles.statRow} ${styles.mono}`}>
-          <span className={styles.stat}>{app.rating}</span>
-          <span className={styles.statSep}>/</span>
-          <span className={styles.stat}>{app.reviews}</span>
-          <span className={styles.statSep}>/</span>
-          <span className={styles.stat}>{app.downloads}</span>
-        </div>
+          <div className={`${styles.statRow} ${styles.mono}`}>
+            <span className={styles.stat}>{app.rating}</span>
+            <span className={styles.statSep}>/</span>
+            <span className={styles.stat}>{app.reviews}</span>
+            <span className={styles.statSep}>/</span>
+            <span className={styles.stat}>{app.downloads}</span>
+          </div>
 
-        <p className={styles.intro}>{app.intro}</p>
+          <p className={styles.intro}>{app.intro}</p>
 
-        <div className={styles.ctaRow}>
-          <a
-            href={app.playUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}
-          >
-            Play 스토어에서 설치
-          </a>
-          <Link href="/landing/ability" className={`${styles.btn} ${styles.btnGhost} ${styles.mono}`}>
-            ← 시리즈로 돌아가기
-          </Link>
+          <div className={styles.ctaRow}>
+            <a
+              href={app.playUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}
+            >
+              Play 스토어에서 설치
+            </a>
+            <Link href="/landing/ability" className={`${styles.btn} ${styles.btnGhost} ${styles.mono}`}>
+              ← 시리즈로 돌아가기
+            </Link>
+          </div>
         </div>
       </section>
 

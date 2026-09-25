@@ -13,17 +13,19 @@ export default function ProductsLanding() {
       <SubHeader breadcrumbs={[{ label: 'PRODUCTS' }]} />
 
       <section className={`${styles.hero} ${styles.wrap}`}>
-        <div className={`${styles.eyebrow} ${styles.mono}`}>PRODUCT SHOWCASE</div>
-        <h1>
-          하나의 원리로,
-          <br />
-          여러 형태의 도구를 만듭니다.
-        </h1>
-        <p className={styles.sub}>
-          RyuisLabs는 하나의 제품에 머무르지 않습니다. 몰입을 다루는 시리즈, 기록을 다루는 유틸리티,
-          비밀을 다루는 보안 도구 — 각자 다른 문제를 풀지만, 감성이 아닌 인과로 설계한다는 원칙은
-          동일합니다.
-        </p>
+        <div className={styles.heroHead}>
+          <div className={`${styles.eyebrow} ${styles.mono}`}>PRODUCT SHOWCASE</div>
+          <h1>
+            하나의 원리로,
+            <br />
+            여러 형태의 도구를 만듭니다.
+          </h1>
+          <p className={styles.sub}>
+            RyuisLabs는 하나의 제품에 머무르지 않습니다. 몰입을 다루는 시리즈, 기록을 다루는 유틸리티,
+            비밀을 다루는 보안 도구 — 각자 다른 문제를 풀지만, 감성이 아닌 인과로 설계한다는 원칙은
+            동일합니다.
+          </p>
+        </div>
       </section>
 
       <section className={`${styles.wrap} ${styles.section}`}>
