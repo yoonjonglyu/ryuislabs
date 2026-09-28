@@ -7,7 +7,6 @@
   --text-dim: #868e99;
   --text-faint: #4d545e;
   --link: #3d8bff;
-  --status: #3ed598;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
   --font-body: 'PretendardVariable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   --container: 1120px;
@@ -43,7 +42,7 @@
 
 @media (max-width: 640px) {
   .wrap {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 }
 
@@ -59,25 +58,25 @@
 }
 
 .hero {
-  padding: 110px 0 64px;
+  padding: 100px 0 48px;
 }
 
 @media (max-width: 640px) {
   .hero {
-    padding: 90px 0 44px;
+    padding: 80px 0 32px;
   }
 }
 
 /* SECTION HEAD WITH STRUCTURAL LEFT PADDING */
 .heroHead {
-  padding-left: 28px;
+  padding-left: 24px;
   border-left: 2px solid var(--link);
-  max-width: 800px;
+  max-width: 820px;
 }
 
 @media (max-width: 640px) {
   .heroHead {
-    padding-left: 18px;
+    padding-left: 16px;
   }
 }
 
@@ -93,7 +92,7 @@
   border: 1px solid rgba(61, 139, 255, 0.25);
   padding: 5px 12px;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .eyebrow::before {
@@ -106,46 +105,52 @@
 }
 
 .page .hero h1 {
-  font-size: clamp(30px, 4.4vw, 46px);
+  font-size: clamp(26px, 4vw, 42px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.32;
   max-width: 780px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .sub {
-  margin-top: 20px;
-  font-size: clamp(15px, 1.8vw, 17px);
+  margin-top: 16px;
+  font-size: clamp(14px, 1.6vw, 16px);
   color: var(--text-dim);
-  max-width: 660px;
+  max-width: 680px;
   line-height: 1.8;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .section {
-  padding-bottom: 120px;
+  padding-bottom: 90px;
 }
 
 @media (max-width: 640px) {
   .section {
-    padding-bottom: 80px;
+    padding-bottom: 60px;
   }
 }
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: 20px;
 }
 
 .card {
   background: var(--bg-card);
-  padding: 36px 32px;
+  padding: 32px 28px;
   border: 1px solid var(--border);
   border-top: 2px solid var(--accent, var(--border-bright));
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   transition: all 0.2s ease;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .card:hover {
@@ -165,6 +170,8 @@
   align-items: center;
   margin-bottom: 16px;
   min-height: 22px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .ref {
@@ -197,40 +204,47 @@
   color: var(--accent, var(--link));
   letter-spacing: 0.08em;
   margin-bottom: 12px;
+  white-space: nowrap;
 }
 
 .page .card h3 {
-  font-size: 21px;
+  font-size: clamp(18px, 2.2vw, 21px);
   font-weight: 700;
   margin-bottom: 8px;
   line-height: 1.35;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .tagline {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text);
   opacity: 0.9;
   margin-bottom: 12px;
   font-weight: 500;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .desc {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-dim);
   line-height: 1.75;
   flex-grow: 1;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .cardActions {
   display: flex;
-  gap: 12px;
-  margin-top: 28px;
+  gap: 10px;
+  margin-top: 24px;
   flex-wrap: wrap;
 }
 
 .btn {
-  font-size: 13px;
-  padding: 11px 20px;
+  font-size: 12.5px;
+  padding: 10px 18px;
   border-radius: 3px;
   border: 1px solid var(--border-bright);
   display: inline-flex;
@@ -238,6 +252,7 @@
   justify-content: center;
   transition: all 0.15s ease;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .btnPrimary {
@@ -258,11 +273,12 @@
 
 .btnGhost:hover {
   border-color: var(--accent, var(--link));
-  color: var(--text);
+  color: var(--accent, var(--link));
 }
 
 .btnDisabled {
   color: var(--text-faint);
+  border-color: var(--border);
   cursor: default;
 }
 
@@ -272,7 +288,7 @@
     gap: 16px;
   }
   .card {
-    padding: 26px 20px;
+    padding: 24px 18px;
   }
   .cardActions {
     flex-direction: column;
@@ -280,17 +296,17 @@
   }
   .btn {
     width: 100%;
-    padding: 12px 18px;
+    padding: 12px 16px;
   }
 }
 
 .footer {
-  padding: 36px 0 56px;
+  padding: 32px 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
   font-size: 12px;
   color: var(--text-faint);
   border-top: 1px solid var(--border);
@@ -298,6 +314,7 @@
 
 .backLink {
   transition: color 0.15s ease;
+  white-space: nowrap;
 }
 
 .backLink:hover {

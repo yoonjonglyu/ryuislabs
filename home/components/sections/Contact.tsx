@@ -1,21 +1,30 @@
 import styles from '@/app/ryuislabs.module.css';
 import { Reveal } from '@/components/common/Reveal';
-import { COMPANY_INFO } from '@/constants/company';
+import { Locale, DEFAULT_LOCALE } from '@/constants/i18n';
+import { getCompanyTranslation } from '@/constants/translations/company';
+import { getUiTranslations } from '@/constants/translations/ui';
 
-export function Contact() {
+interface ContactProps {
+  locale?: Locale;
+}
+
+export function Contact({ locale = DEFAULT_LOCALE }: ContactProps) {
+  const companyData = getCompanyTranslation(locale);
+  const ui = getUiTranslations(locale);
+
   return (
     <section id="contact" className={styles.wrap}>
       <Reveal className={styles.contactBox}>
         <div>
           <h3>
-            제도권 결합, 기술 협력,
+            {ui.contact.title}
             <br />
-            사업 문의를 기다립니다.
+            {ui.contact.titleSub}
           </h3>
-          <p>공공·민간 프로젝트 협업, B2B 라이선스, 투자 및 멘토링 문의 모두 환영합니다.</p>
+          <p>{ui.contact.desc}</p>
         </div>
-        <a href={`mailto:${COMPANY_INFO.email}`} className={`${styles.contactEmail} ${styles.mono}`}>
-          {COMPANY_INFO.email}
+        <a href={`mailto:${companyData.companyInfo.email}`} className={`${styles.contactEmail} ${styles.mono}`}>
+          {companyData.companyInfo.email}
         </a>
       </Reveal>
     </section>

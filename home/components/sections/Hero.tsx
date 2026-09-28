@@ -2,7 +2,13 @@
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import styles from '@/app/ryuislabs.module.css';
-import { BOOT_LINES, COMPANY_INFO } from '@/constants/company';
+import { Locale, DEFAULT_LOCALE } from '@/constants/i18n';
+import { getCompanyTranslation } from '@/constants/translations/company';
+import { getUiTranslations } from '@/constants/translations/ui';
+
+interface HeroProps {
+  locale?: Locale;
+}
 
 function subscribeReducedMotion(callback: () => void) {
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -18,7 +24,12 @@ function getServerReducedMotionSnapshot() {
   return false;
 }
 
-export function Hero() {
+export function Hero({ locale = DEFAULT_LOCALE }: HeroProps) {
+  const companyData = getCompanyTranslation(locale);
+  const ui = getUiTranslations(locale);
+  const bootLines = companyData.bootLines;
+  const companyInfo = companyData.companyInfo;
+
   const reducedMotion = useSyncExternalStore(
     subscribeReducedMotion,
     getReducedMotionSnapshot,
@@ -44,12 +55,12 @@ export function Hero() {
     };
 
     const tick = () => {
-      if (li >= BOOT_LINES.length) {
+      if (li >= bootLines.length) {
         render(out, false);
         setBootDone(true);
         return;
       }
-      const line = BOOT_LINES[li];
+      const line = bootLines[li];
       if (ci <= line.length) {
         render(out + line.slice(0, ci), true);
         ci++;
@@ -64,9 +75,12 @@ export function Hero() {
     tick();
 
     return () => clearTimeout(timer);
-  }, [reducedMotion]);
+  }, [reducedMotion, bootLines]);
 
   const heroVisible = bootDone || reducedMotion;
+
+  // slogan 줄바꿈 지원
+  const sloganLines = companyInfo.slogan.split('\n');
 
   return (
     <section className={`${styles.hero} ${styles.wrap}`}>
@@ -75,7 +89,7 @@ export function Hero() {
           <span className={styles.terminalDot} />
           <span className={styles.terminalDot} />
           <span className={styles.terminalDot} />
-          <span className={`${styles.bootTitle} ${styles.mono}`}>TERMINAL // SYSTEM_INIT</span>
+          <span className={`${styles.bootTitle} ${styles.mono}`}>{ui.hero.terminalTitle}</span>
         </div>
         <div
           className={`${styles.bootLog} ${styles.mono}`}
@@ -88,31 +102,34 @@ export function Hero() {
           className={`${styles.eyebrow} ${styles.heroReveal}`}
           style={{ opacity: heroVisible ? 1 : 0, transitionDelay: '0.05s' }}
         >
-          ESTABLISHED {COMPANY_INFO.established} · SYSTEM ARCHITECTURE
+          {ui.hero.badge}
         </div>
         <h1
           className={styles.heroReveal}
           style={{ opacity: heroVisible ? 1 : 0, transitionDelay: '0.15s' }}
         >
-          모든 성취의 이면에는,
-          <br />
-          치열한 과정이 존재합니다.
+          {sloganLines.map((line, idx) => (
+            <span key={idx}>
+              {line}
+              {idx < sloganLines.length - 1 && <br />}
+            </span>
+          ))}
         </h1>
         <p
           className={`${styles.sub} ${styles.heroReveal}`}
           style={{ opacity: heroVisible ? 1 : 0, transitionDelay: '0.28s' }}
         >
-          {COMPANY_INFO.subcopy}
+          {companyInfo.subcopy}
         </p>
         <div
           className={`${styles.ctaRow} ${styles.heroReveal}`}
           style={{ opacity: heroVisible ? 1 : 0, transitionDelay: '0.4s' }}
         >
           <a href="#status" className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}>
-            제품 살펴보기 — RYUis : STATUS
+            {ui.hero.ctaExplore}
           </a>
           <a href="#contact" className={`${styles.btn} ${styles.btnGhost} ${styles.mono}`}>
-            비즈니스 문의
+            {ui.hero.ctaInquire}
           </a>
         </div>
       </div>
