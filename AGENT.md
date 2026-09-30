@@ -115,6 +115,12 @@ ryuislabs/
     │   │               └── page.tsx
     │   └── landing/               # 하위 호환 레거시 라우트 (리다이렉트 처리)
     └── public/                    # 정적 에셋 (파비콘, 브랜드 로고 등)
+        └── images/
+            └── products/          # 앱 스크린샷 로컬 저장소
+                ├── memoflow/      # 01.webp ~ 04.webp
+                ├── seedvault/     # 01.webp ~ 09.webp
+                ├── gravity-time/  # 01.webp ~ 03.webp
+                └── daoxin/        # 01.webp ~ 03.webp
 ```
 
 ---
@@ -150,7 +156,7 @@ ryuislabs/
    - `ABILITY: DaoXin (도심)`: 수묵화·서예 질감, 일상 습관의 정신 수행화, 경지·별자리 통계 시스템.
 2. **Standalone Utilities**:
    - `MemoFlow`: 즉각적인 생각 캡처, 드래프트 모드, 다중 포맷 익스포트(HTML/MD/JSON).
-   - `SeedVault`: Argon2id + AES-256-GCM 기반 로컬 제로 지식 암호화 금고 (출시 예정).
+   - `SeedVault`: Argon2id + AES-256-GCM 기반 로컬 제로 지식 암호화 금고 (Google Play 출시 완료: `com.ryuislabs.seedvault`).
 
 ---
 

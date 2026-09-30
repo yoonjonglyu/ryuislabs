@@ -7,6 +7,45 @@ export interface ProductsTranslationData {
   abilityApps: Record<string, AbilityApp>;
 }
 
+export const PRODUCT_SCREENSHOTS: Record<string, string[]> = {
+  memoflow: [
+    '/images/products/memoflow/memo.png',
+    '/images/products/memoflow/memo2.jpg',
+    '/images/products/memoflow/memo3.jpg',
+    '/images/products/memoflow/memo4.jpg',
+    '/images/products/memoflow/memo5.jpg',
+    '/images/products/memoflow/memo6.png',
+  ],
+  seedvault: [
+    '/images/products/seedvault/seedvault.png',
+    '/images/products/seedvault/seedvault2.png',
+    '/images/products/seedvault/seedvault3.png',
+    '/images/products/seedvault/seedvault4.png',
+    '/images/products/seedvault/seedvault5.png',
+  ],
+  'gravity-time': [
+    '/images/products/gravity-time/momenta.png',
+    '/images/products/gravity-time/momenta2.png',
+    '/images/products/gravity-time/momenta3.png',
+    '/images/products/gravity-time/momenta4.png',
+    '/images/products/gravity-time/momenta5.png',
+    '/images/products/gravity-time/momenta6.png',
+    '/images/products/gravity-time/momenta7.png',
+    '/images/products/gravity-time/momenta8.png',
+    '/images/products/gravity-time/momenta9.png',
+  ],
+  daoxin: [
+    '/images/products/daoxin/daoxin.jpg',
+    '/images/products/daoxin/daoxin2.png',
+    '/images/products/daoxin/daoxin3.png',
+    '/images/products/daoxin/daoxin4.png',
+    '/images/products/daoxin/daoxin5.png',
+    '/images/products/daoxin/daoxin6.png',
+    '/images/products/daoxin/daoxin7.png',
+    
+  ],
+};
+
 export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
   ko: {
     catalogEntries: [
@@ -41,7 +80,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         desc: 'Argon2id + AES-256-GCM으로 모든 비밀을 하나의 금고에 재잠금합니다. 자동 잠금 뷰어와 QR 공유까지 — 제로 지식 원칙 위에서 설계된 보안 유틸리티.',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         href: '/ko/landing/seedvault',
       },
     ],
@@ -76,12 +115,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '기록은 기기 안에만 저장되고, 서버로 전송되지 않습니다.',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/jrcR_jY9AQaFVbs2iLIFwj-mLl4bdc4jZbGSnL0cxEUUj4LJlDF4TdRL0mxzdjbBjg0WzL5ngR9SjxSBRMyQJg=w526-h296',
-          'https://play-lh.googleusercontent.com/syasY42uMcMrfrlcO0i3z5iBVOHzLPysE64h-u6Y6USiMDGNTWhqi-ZCn7Yt4ir-q1ue6PMUb_Um6vp0Js14ZJE=w526-h296',
-          'https://play-lh.googleusercontent.com/rQu_0iyyI6kuw4kFrq9Fa2CfielRUVyQxWvjA1bFsdN_3n4s62PIVNOCg06_5pXUiTVMgksVwMnUYHDxB1nzVA=w526-h296',
-          'https://play-lh.googleusercontent.com/L0KvPUk5NbAAoqyKhVsZoo_gCBOv8myER6RyKSS-M9nX8_50gukf34zWdxdylFU5sevlwYrzzWhMt7dpnr1b6A=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.memoflow,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.memo',
       },
       seedvault: {
@@ -90,7 +124,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         tagline: '단 하나의 볼트, 군사급 암호화',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         intro:
           'Argon2id + AES-256-GCM으로 모든 비밀을 하나의 금고에 재잠금합니다. 시드 문구, 개인 키, 민감한 텍스트를 기기 안에서만 암호화하고, 서버에는 아무것도 남기지 않는 제로 지식 원칙 위에서 설계됐습니다.',
         features: [
@@ -111,7 +145,8 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '필요할 때만 QR 코드로 비밀을 안전하게 공유하고, 그 외에는 완전히 격리된 상태로 유지합니다.',
           },
         ],
-        screenshots: [],
+        screenshots: PRODUCT_SCREENSHOTS.seedvault,
+        playUrl: 'https://play.google.com/store/apps/details?id=com.ryuislabs.seedvault',
       },
     },
     abilityApps: {
@@ -147,11 +182,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '에너지가 소진되면 짧은 충전(광고)으로 다시 시간을 통제할 힘을 얻습니다.',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/86Fu083_e4Eo2wio9AdqoanK6tPfN2xBd9V5Y2hRVZsf82I2mcQQNc68Bp6zzY2TJ98Cu0v6_NUaQPKkLuyAmQ=w526-h296',
-          'https://play-lh.googleusercontent.com/pjgMakvPJDNk__x7lrK8zSAr5L4bNhYl_s-UEIDgW4dbkZO8KFqQcbzAiNmTtD6HX6_t7km7tLSM_Dr6ljJwmw=w526-h296',
-          'https://play-lh.googleusercontent.com/qZA6ZuU4CVWZhsSWKhyALmjSeRjEVM4INokQl2RD143VGsK1Ea-WktW3ZJAyNjt3vpDGAYeFn5pDgS2oVG4JAQ=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS['gravity-time'],
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.timer',
         otherSlug: 'daoxin',
         otherName: 'ABILITY: DaoXin',
@@ -189,11 +220,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '진행 상황을 밤하늘의 별자리처럼 시각화해 성장의 궤적을 한눈에 봅니다.',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/T8kBoNBDstKoF_4CX7XK15lTGLxSJ3zfPEFJcxOWGxB9Ed3QYifnNacq32FBEQY7vgDtn6tBn7ZJJnzS-85snzM=w526-h296',
-          'https://play-lh.googleusercontent.com/CLfnd5If-sU1GKFt_tJQN4N77CPIrX1XuHacEYRfsxDbc5xCvJzndO2pBNgfhZfKUgCM1OWgH1vr8QT0YxS4Dw=w526-h296',
-          'https://play-lh.googleusercontent.com/OB6XQygro900xg37i_Rt58EeIdfIW67yYhrHIOImDWd8SQre1pHupbXZqJZsMidR4mOPWVMSjvLAjoSqxFj=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.daoxin,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.daoxin',
         otherSlug: 'gravity-time',
         otherName: 'ABILITY: Gravity & Time',
@@ -233,7 +260,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         desc: 'Re-locks all secrets in a single vault via Argon2id + AES-256-GCM. Auto-locking viewer and ephemeral QR sharing on zero-knowledge architecture.',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         href: '/en/landing/seedvault',
       },
     ],
@@ -268,12 +295,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: 'All notes reside strictly within device storage. Zero external server telemetry.',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/jrcR_jY9AQaFVbs2iLIFwj-mLl4bdc4jZbGSnL0cxEUUj4LJlDF4TdRL0mxzdjbBjg0WzL5ngR9SjxSBRMyQJg=w526-h296',
-          'https://play-lh.googleusercontent.com/syasY42uMcMrfrlcO0i3z5iBVOHzLPysE64h-u6Y6USiMDGNTWhqi-ZCn7Yt4ir-q1ue6PMUb_Um6vp0Js14ZJE=w526-h296',
-          'https://play-lh.googleusercontent.com/rQu_0iyyI6kuw4kFrq9Fa2CfielRUVyQxWvjA1bFsdN_3n4s62PIVNOCg06_5pXUiTVMgksVwMnUYHDxB1nzVA=w526-h296',
-          'https://play-lh.googleusercontent.com/L0KvPUk5NbAAoqyKhVsZoo_gCBOv8myER6RyKSS-M9nX8_50gukf34zWdxdylFU5sevlwYrzzWhMt7dpnr1b6A=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.memoflow,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.memo',
       },
       seedvault: {
@@ -282,7 +304,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         tagline: 'One Vault, Military-Grade Encryption',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         intro:
           'Re-locks all secrets in a single vault via Argon2id + AES-256-GCM. Seed phrases, private keys, and sensitive credentials remain strictly encrypted on-device on uncompromising zero-knowledge architecture.',
         features: [
@@ -303,7 +325,8 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: 'Transmit confidential records ephemerally via secure QR codes while maintaining complete system isolation.',
           },
         ],
-        screenshots: [],
+        screenshots: PRODUCT_SCREENSHOTS.seedvault,
+        playUrl: 'https://play.google.com/store/apps/details?id=com.ryuislabs.seedvault',
       },
     },
     abilityApps: {
@@ -339,11 +362,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: 'Recharge temporal energy swiftly to resume commanding time with unyielding momentum.',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/86Fu083_e4Eo2wio9AdqoanK6tPfN2xBd9V5Y2hRVZsf82I2mcQQNc68Bp6zzY2TJ98Cu0v6_NUaQPKkLuyAmQ=w526-h296',
-          'https://play-lh.googleusercontent.com/pjgMakvPJDNk__x7lrK8zSAr5L4bNhYl_s-UEIDgW4dbkZO8KFqQcbzAiNmTtD6HX6_t7km7tLSM_Dr6ljJwmw=w526-h296',
-          'https://play-lh.googleusercontent.com/qZA6ZuU4CVWZhsSWKhyALmjSeRjEVM4INokQl2RD143VGsK1Ea-WktW3ZJAyNjt3vpDGAYeFn5pDgS2oVG4JAQ=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS['gravity-time'],
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.timer',
         otherSlug: 'daoxin',
         otherName: 'ABILITY: DaoXin',
@@ -381,11 +400,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: 'Visualize progressive growth mapped as celestial constellations across the nocturnal sky.',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/T8kBoNBDstKoF_4CX7XK15lTGLxSJ3zfPEFJcxOWGxB9Ed3QYifnNacq32FBEQY7vgDtn6tBn7ZJJnzS-85snzM=w526-h296',
-          'https://play-lh.googleusercontent.com/CLfnd5If-sU1GKFt_tJQN4N77CPIrX1XuHacEYRfsxDbc5xCvJzndO2pBNgfhZfKUgCM1OWgH1vr8QT0YxS4Dw=w526-h296',
-          'https://play-lh.googleusercontent.com/OB6XQygro900xg37i_Rt58EeIdfIW67yYhrHIOImDWd8SQre1pHupbXZqJZsMidR4mOPWVMSjvLAjoSqxFj=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.daoxin,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.daoxin',
         otherSlug: 'gravity-time',
         otherName: 'ABILITY: Gravity & Time',
@@ -425,7 +440,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         desc: 'Argon2id + AES-256-GCMによりあらゆる機密を一つの金庫へ厳封。自動ロックとQR共有を備えたゼロ知識セキュリティ。',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         href: '/ja/landing/seedvault',
       },
     ],
@@ -460,12 +475,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '記録は端末ストレージ内のみに保存され、外部サーバーへ一切送信されません。',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/jrcR_jY9AQaFVbs2iLIFwj-mLl4bdc4jZbGSnL0cxEUUj4LJlDF4TdRL0mxzdjbBjg0WzL5ngR9SjxSBRMyQJg=w526-h296',
-          'https://play-lh.googleusercontent.com/syasY42uMcMrfrlcO0i3z5iBVOHzLPysE64h-u6Y6USiMDGNTWhqi-ZCn7Yt4ir-q1ue6PMUb_Um6vp0Js14ZJE=w526-h296',
-          'https://play-lh.googleusercontent.com/rQu_0iyyI6kuw4kFrq9Fa2CfielRUVyQxWvjA1bFsdN_3n4s62PIVNOCg06_5pXUiTVMgksVwMnUYHDxB1nzVA=w526-h296',
-          'https://play-lh.googleusercontent.com/L0KvPUk5NbAAoqyKhVsZoo_gCBOv8myER6RyKSS-M9nX8_50gukf34zWdxdylFU5sevlwYrzzWhMt7dpnr1b6A=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.memoflow,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.memo',
       },
       seedvault: {
@@ -474,7 +484,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         tagline: '単一の保管庫、軍用グレード暗号化',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         intro:
           'Argon2id + AES-256-GCMにより、あらゆる機密情報を単一の金庫へ再施錠。シードフレーズ、プライベートキー、機微なテキストを端末内のみで暗号化し、サーバーには何も残さないゼロ知識アーキテクチャを採用しています。',
         features: [
@@ -495,7 +505,8 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '必要な瞬間のみ安全なQRコードで秘密を共有し、通常時は完全な隔離状態を維持。',
           },
         ],
-        screenshots: [],
+        screenshots: PRODUCT_SCREENSHOTS.seedvault,
+        playUrl: 'https://play.google.com/store/apps/details?id=com.ryuislabs.seedvault',
       },
     },
     abilityApps: {
@@ -531,11 +542,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: 'エネルギーが枯渇した際は短時間のチャージを行い、再び時間を操る推進力を獲得。',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/86Fu083_e4Eo2wio9AdqoanK6tPfN2xBd9V5Y2hRVZsf82I2mcQQNc68Bp6zzY2TJ98Cu0v6_NUaQPKkLuyAmQ=w526-h296',
-          'https://play-lh.googleusercontent.com/pjgMakvPJDNk__x7lrK8zSAr5L4bNhYl_s-UEIDgW4dbkZO8KFqQcbzAiNmTtD6HX6_t7km7tLSM_Dr6ljJwmw=w526-h296',
-          'https://play-lh.googleusercontent.com/qZA6ZuU4CVWZhsSWKhyALmjSeRjEVM4INokQl2RD143VGsK1Ea-WktW3ZJAyNjt3vpDGAYeFn5pDgS2oVG4JAQ=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS['gravity-time'],
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.timer',
         otherSlug: 'daoxin',
         otherName: 'ABILITY: DaoXin',
@@ -573,11 +580,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '進捗を夜空の星座のように可視化し、成長の軌跡を直感的に俯瞰。',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/T8kBoNBDstKoF_4CX7XK15lTGLxSJ3zfPEFJcxOWGxB9Ed3QYifnNacq32FBEQY7vgDtn6tBn7ZJJnzS-85snzM=w526-h296',
-          'https://play-lh.googleusercontent.com/CLfnd5If-sU1GKFt_tJQN4N77CPIrX1XuHacEYRfsxDbc5xCvJzndO2pBNgfhZfKUgCM1OWgH1vr8QT0YxS4Dw=w526-h296',
-          'https://play-lh.googleusercontent.com/OB6XQygro900xg37i_Rt58EeIdfIW67yYhrHIOImDWd8SQre1pHupbXZqJZsMidR4mOPWVMSjvLAjoSqxFj=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.daoxin,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.daoxin',
         otherSlug: 'gravity-time',
         otherName: 'ABILITY: Gravity & Time',
@@ -617,7 +620,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         desc: '採用 Argon2id + AES-256-GCM 將所有機密資訊重密封裝。具備自動上鎖與 QR Code 傳遞之零知識架構安全工具。',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         href: '/zh-TW/landing/seedvault',
       },
     ],
@@ -652,12 +655,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '所有筆記僅儲存於設備本機，絕不上傳任何外部伺服器。',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/jrcR_jY9AQaFVbs2iLIFwj-mLl4bdc4jZbGSnL0cxEUUj4LJlDF4TdRL0mxzdjbBjg0WzL5ngR9SjxSBRMyQJg=w526-h296',
-          'https://play-lh.googleusercontent.com/syasY42uMcMrfrlcO0i3z5iBVOHzLPysE64h-u6Y6USiMDGNTWhqi-ZCn7Yt4ir-q1ue6PMUb_Um6vp0Js14ZJE=w526-h296',
-          'https://play-lh.googleusercontent.com/rQu_0iyyI6kuw4kFrq9Fa2CfielRUVyQxWvjA1bFsdN_3n4s62PIVNOCg06_5pXUiTVMgksVwMnUYHDxB1nzVA=w526-h296',
-          'https://play-lh.googleusercontent.com/L0KvPUk5NbAAoqyKhVsZoo_gCBOv8myER6RyKSS-M9nX8_50gukf34zWdxdylFU5sevlwYrzzWhMt7dpnr1b6A=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.memoflow,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.memo',
       },
       seedvault: {
@@ -666,7 +664,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
         tagline: '單一保險庫，軍規級高強度加密',
         ref: 'STANDALONE_TOOL',
         accent: '#22D3C4',
-        status: 'soon',
+        status: 'live',
         intro:
           '運用 Argon2id + AES-256-GCM 將所有機密資訊重新加密鎖入單一金庫。助記詞、私鑰及敏感情資皆於設備本機離線加密，伺服器不留存任何痕跡，奠基於不妥協的零知識架構。',
         features: [
@@ -687,7 +685,8 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '僅在必要時透過加密 QR Code 進行點對點傳遞，其餘時刻維持徹底實體隔離。',
           },
         ],
-        screenshots: [],
+        screenshots: PRODUCT_SCREENSHOTS.seedvault,
+        playUrl: 'https://play.google.com/store/apps/details?id=com.ryuislabs.seedvault',
       },
     },
     abilityApps: {
@@ -723,11 +722,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '能量耗盡時可進行快速充能，重獲掌控時間洪流的充沛動力。',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/86Fu083_e4Eo2wio9AdqoanK6tPfN2xBd9V5Y2hRVZsf82I2mcQQNc68Bp6zzY2TJ98Cu0v6_NUaQPKkLuyAmQ=w526-h296',
-          'https://play-lh.googleusercontent.com/pjgMakvPJDNk__x7lrK8zSAr5L4bNhYl_s-UEIDgW4dbkZO8KFqQcbzAiNmTtD6HX6_t7km7tLSM_Dr6ljJwmw=w526-h296',
-          'https://play-lh.googleusercontent.com/qZA6ZuU4CVWZhsSWKhyALmjSeRjEVM4INokQl2RD143VGsK1Ea-WktW3ZJAyNjt3vpDGAYeFn5pDgS2oVG4JAQ=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS['gravity-time'],
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.timer',
         otherSlug: 'daoxin',
         otherName: 'ABILITY: DaoXin',
@@ -765,11 +760,7 @@ export const PRODUCTS_TRANSLATIONS: Record<Locale, ProductsTranslationData> = {
             desc: '將成長進度如星辰點綴夜空般可視化呈現，一覽心智蛻變軌跡。',
           },
         ],
-        screenshots: [
-          'https://play-lh.googleusercontent.com/T8kBoNBDstKoF_4CX7XK15lTGLxSJ3zfPEFJcxOWGxB9Ed3QYifnNacq32FBEQY7vgDtn6tBn7ZJJnzS-85snzM=w526-h296',
-          'https://play-lh.googleusercontent.com/CLfnd5If-sU1GKFt_tJQN4N77CPIrX1XuHacEYRfsxDbc5xCvJzndO2pBNgfhZfKUgCM1OWgH1vr8QT0YxS4Dw=w526-h296',
-          'https://play-lh.googleusercontent.com/OB6XQygro900xg37i_Rt58EeIdfIW67yYhrHIOImDWd8SQre1pHupbXZqJZsMidR4mOPWVMSjvLAjoSqxFj=w526-h296',
-        ],
+        screenshots: PRODUCT_SCREENSHOTS.daoxin,
         playUrl: 'https://play.google.com/store/apps/details?id=com.yoonjongryu.daoxin',
         otherSlug: 'gravity-time',
         otherName: 'ABILITY: Gravity & Time',

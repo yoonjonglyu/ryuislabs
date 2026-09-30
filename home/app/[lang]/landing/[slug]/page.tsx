@@ -56,13 +56,13 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           <h1>{product.name}</h1>
           <p className={styles.tagline}>{product.tagline}</p>
 
-          {product.status === 'live' && (
+          {product.status === 'live' && (product.rating || product.reviews || product.downloads) && (
             <div className={`${styles.statRow} ${styles.mono}`}>
-              <span className={styles.stat}>{product.rating}</span>
-              <span className={styles.statSep}>/</span>
-              <span className={styles.stat}>{product.reviews}</span>
-              <span className={styles.statSep}>/</span>
-              <span className={styles.stat}>{product.downloads}</span>
+              {product.rating && <span className={styles.stat}>{product.rating}</span>}
+              {product.rating && (product.reviews || product.downloads) && <span className={styles.statSep}>/</span>}
+              {product.reviews && <span className={styles.stat}>{product.reviews}</span>}
+              {product.reviews && product.downloads && <span className={styles.statSep}>/</span>}
+              {product.downloads && <span className={styles.stat}>{product.downloads}</span>}
             </div>
           )}
 
