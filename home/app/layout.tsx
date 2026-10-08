@@ -12,9 +12,67 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { SITE_URL } from "@/constants/seo";
+
 export const metadata: Metadata = {
-  title: "RyuisLabs",
-  description: "RyuisLabs는 감성이나 우연에 기대지 않고, 본질적 논리와 인과 관계를 바탕으로 인간의 노력과 비즈니스의 모든 과정을 정밀하게 기록하는 고성능 솔루션을 공급합니다.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "RyuisLabs (류이즈랩스) — 온디바이스 AI 비전 & 프라이버시 보존 상태 검증 엔진",
+    template: "%s | RyuisLabs",
+  },
+  description:
+    "RyuisLabs는 온디바이스 AI 비전과 제로 지식(Zero-Knowledge) 원칙을 결합하여, 개인의 몰입과 훈련 과정을 프라이버시 침해 없이 정밀하게 검증하고 데이터화하는 시스템 엔지니어링 스튜디오입니다.",
+  applicationName: "RyuisLabs",
+  authors: [{ name: "ryuis", url: "https://yoonjonglyu.github.io" }],
+  creator: "ryuis",
+  publisher: "RyuisLabs",
+  keywords: [
+    "RyuisLabs",
+    "류이즈랩스",
+    "RYUis : STATUS",
+    "온디바이스 AI",
+    "Zero-Knowledge",
+    "프라이버시 보존",
+    "몰입 검증",
+    "SeedVault",
+    "MemoFlow",
+    "Gravity Time",
+    "DaoXin",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "RyuisLabs",
+    title: "RyuisLabs — On-Device AI Vision & Privacy-Preserving State Verification",
+    description:
+      "Deterministic systems engineering studio developing on-device AI vision and zero-knowledge status verification engines.",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "RyuisLabs Logo & System Architecture",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RyuisLabs — On-Device AI Vision & State Verification",
+    description:
+      "Deterministic systems engineering studio developing on-device AI vision and zero-knowledge status verification engines.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({

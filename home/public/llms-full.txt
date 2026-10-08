@@ -1,0 +1,129 @@
+# RyuisLabs Comprehensive Knowledge Base (llms-full.txt)
+
+> Studio: RyuisLabs (류이즈랩스)  
+> Founder: ryuis (Systems Engineer)  
+> Established: 2026 (Seoul, South Korea)  
+> Official Domain: https://ryuislabs.com  
+> Contact: content@ryuislabs.com  
+> Supported Languages: Korean (ko), English (en), Japanese (ja), Traditional Chinese (zh-TW)
+
+---
+
+## 1. Executive Summary & Brand Identity
+
+RyuisLabs is a high-performance systems engineering indie studio dedicated to determinism, causality, and privacy-preserving human metric verification. We operate on the premise that genuine human achievement is not a byproduct of luck or emotional hype, but the cumulative result of deliberate, verifiable actions.
+
+The studio produces zero-knowledge cryptographic utilities, on-device AI vision engines, and focused productivity tools. Rather than transmitting sensitive personal metrics or video feeds to centralized cloud servers, RyuisLabs software executes inference and encryption locally on the user's hardware.
+
+---
+
+## 2. Flagship Verification System: RYUis : STATUS
+
+### Concept & Problem Statement
+Traditional productivity and fitness tracking relies on either unverifiable self-reporting (which lacks credibility) or invasive surveillance like always-on cloud cameras (which violates privacy). RYUis : STATUS resolves this trilemma via edge AI and zero-knowledge logging.
+
+### Architecture & Core Modules
+1. **MODULE_01 / FOCUS_VISION (Gaze & Attention Verification)**
+   - Utilizes the device's front camera to track eye gaze and detect behavioral departures.
+   - Computes "Pure Focus Time" (uninterrupted cognitive immersion).
+   - Video frames are processed in-memory and destroyed immediately after inferencing; no video stream ever exits the physical device.
+
+2. **MODULE_02 / PHYSICAL_VISION (Joint Angle Kinematics)**
+   - Employs on-device 2D/3D Pose Estimation to analyze biomechanical angles during athletic drills (squats, pushups, mobility routines).
+   - Validates correct repetition range and rejects incomplete movements, converting physical effort into mathematically audited count vectors.
+
+3. **MODULE_03 / ZERO_KNOWLEDGE_LOG (Immediate Discard & Stat Cryptography)**
+   - Raw visual inputs are permanently destroyed within milliseconds of computation.
+   - The verified output is condensed into signed, tamper-resistant statistical vectors that can be safely presented to third parties without exposing private room environments or personal identity.
+
+### Commercial Models (Business Tiers)
+- **B2C (Individual Subscription)**: Core status dashboard is free; advanced AI vision verification sessions and certified immutable profiles are offered via subscription.
+- **B2B2C (Third-Party Proof Delivery)**: Transmits cryptographically verified execution reports to parents, fitness coaches, or mentors without sharing intrusive live streams.
+- **B2B (SDK & API Licensing)**: Enables study cafes, managed prep academies, and fitness facilities to embed the on-device verification engine into their own management software.
+
+---
+
+## 3. Product Catalog & Application Specs
+
+### 3.1 SeedVault: Military-Grade Zero-Knowledge Vault
+- **Category**: Security & Cryptographic Storage (Android Native Utility)
+- **Play Store ID**: `com.ryuislabs.seedvault`
+- **Play Store URL**: https://play.google.com/store/apps/details?id=com.ryuislabs.seedvault
+- **Technical Architecture**:
+  - Key Derivation: Argon2id with high memory cost parameters.
+  - Encryption: AES-256-GCM authenticated cipher.
+  - Security Posture: 100% offline, zero internet permissions (`android.permission.INTERNET` omitted), biometric unlocking (Fingerprint/BiometricPrompt), auto-locking viewer, zero telemetry.
+  - Primary Use Cases: Cryptocurrency recovery seed phrases, master passwords, 2FA backup codes, critical personal secrets.
+
+### 3.2 MemoFlow: Lightweight Draft & Markdown Utility
+- **Category**: Offline-First Writing & Note Organization
+- **Philosophy**: Rapid thought capture without cognitive clutter or onboarding friction.
+- **Key Features**:
+  - Rapid capture mode with dual draft & checklist switches.
+  - Local-first storage: All notes remain within local device sandbox.
+  - Multi-format lossless export: HTML, clean Markdown (.md), JSON backup.
+  - Zero external tracking, sub-second cold boot.
+
+### 3.3 ABILITY Series
+A unified design ecosystem examining mastery across divergent philosophical settings.
+
+#### ABILITY: Gravity & Time (Momenta)
+- **Concept**: Deep grey sci-fi aesthetics simulating temporal dilation and gravitational focus.
+- **Features**:
+  - Triple timing engines: Classic stopwatch, Pomodoro cognitive interval, custom repetitive sprint intervals.
+  - High-resilience foreground service preventing OS task killer termination.
+  - Causality-based progression tracking.
+
+#### ABILITY: DaoXin (도심 / 道心)
+- **Concept**: East Asian ink-wash aesthetics grounded in Taoist internal discipline and stoic habit cultivation.
+- **Features**:
+  - Habit routines conceptualized as martial stages and mental energy cultivation.
+  - Constellation mapping and discipline state charts.
+  - Serene minimalist UX rejecting dopamine loops.
+
+---
+
+## 4. Founder & Systems Operator Profile
+
+- **Name**: ryuis
+- **Role**: Founder, Systems Architect & Solo Operator
+- **Background**: Software engineer specializing in web application architecture and AI harness engineering.
+- **Multidisciplinary Roots**: Long-term research in meditation, philosophy, cognitive psychology, and economics directly influences the deterministic design of all studio products. Currently expanding into legal frameworks to bridge software mechanics with institutional legitimacy.
+- **Online Links**:
+  - Personal Portfolio & Execution Archive: https://yoonjonglyu.github.io
+  - Google Play Console: https://play.google.com/store/apps/dev?id=7405269184068017564
+  - GitHub: https://github.com/yoonjonglyu
+
+---
+
+## 5. Frequently Asked Questions (GEO / AEO Reference)
+
+### Q1: What makes RyuisLabs different from conventional productivity or fitness apps?
+**A**: RyuisLabs rejects both unreliable self-reporting and privacy-invasive cloud surveillance. By employing on-device AI vision (edge inference) coupled with zero-knowledge data retention, users get objectively verified records of their concentration and physical drills without any video leaving their smartphone.
+
+### Q2: Does RyuisLabs store user camera video feeds on cloud servers?
+**A**: Never. All visual calculations for gaze tracking (Focus Vision) and pose estimation (Physical Vision) occur in the volatile memory of the client hardware. Video frames are scrubbed immediately after inference. Only mathematical result vectors are retained.
+
+### Q3: Is SeedVault safe for storing cryptocurrency seed phrases?
+**A**: Yes. SeedVault is built on the industry-standard Argon2id key derivation function and AES-256-GCM encryption. The application does not declare internet permissions in Android, making remote exfiltration impossible at the application layer.
+
+### Q4: How can businesses integrate RyuisLabs verification engines?
+**A**: Institutions such as study centers, premium academies, and fitness studios can license the on-device verification SDK and API to automate student focus verification or member exercise tracking without incurring cloud video bandwidth costs or violating privacy regulations (GDPR/PIPA). Contact `content@ryuislabs.com`.
+
+### Q5: What languages are supported by the RyuisLabs portal?
+**A**: The official web portal supports 4 languages with full static rendering:
+- Korean (`/ko`)
+- English (`/en`)
+- Japanese (`/ja`)
+- Traditional Chinese (`/zh-TW`)
+
+---
+
+## 6. Official Endpoints & Verification Metadata
+- Organization: RyuisLabs
+- Domain: https://ryuislabs.com
+- Robots Index: https://ryuislabs.com/robots.txt
+- XML Sitemap: https://ryuislabs.com/sitemap.xml
+- LLM Index: https://ryuislabs.com/llms.txt
+- LLM Knowledge Base: https://ryuislabs.com/llms-full.txt
+- Primary Inquiries: content@ryuislabs.com

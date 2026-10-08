@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from '@/app/landing/landing.module.css';
 import SubHeader from '@/components/common/SubHeader';
@@ -6,6 +7,7 @@ import { LOCALES, normalizeLocale } from '@/constants/i18n';
 import { getProductsData } from '@/constants/products';
 import { getCompanyTranslation } from '@/constants/translations/company';
 import { getUiTranslations } from '@/constants/translations/ui';
+import { SITE_URL, getAlternateLanguages, getBreadcrumbSchema } from '@/constants/seo';
 
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
@@ -15,6 +17,34 @@ interface ProductsLandingProps {
   params: Promise<{ lang: string }>;
 }
 
+export async function generateMetadata({ params }: ProductsLandingProps): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = normalizeLocale(lang);
+  const ui = getUiTranslations(locale);
+
+  const title = `${ui.nav.products} // SYSTEM_CATALOG`;
+  const description = ui.landing.desc;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/landing`,
+      languages: getAlternateLanguages('/landing'),
+    },
+    openGraph: {
+      title: `${title} | RyuisLabs`,
+      description,
+      url: `${SITE_URL}/${locale}/landing`,
+      locale,
+    },
+    twitter: {
+      title: `${title} | RyuisLabs`,
+      description,
+    },
+  };
+}
+
 export default async function ProductsLanding({ params }: ProductsLandingProps) {
   const { lang } = await params;
   const locale = normalizeLocale(lang);
@@ -22,8 +52,37 @@ export default async function ProductsLanding({ params }: ProductsLandingProps) 
   const companyData = getCompanyTranslation(locale);
   const ui = getUiTranslations(locale);
 
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'RyuisLabs', url: `${SITE_URL}/${locale}` },
+    { name: ui.nav.products, url: `${SITE_URL}/${locale}/landing` },
+  ]);
+
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${ui.nav.products} - RyuisLabs`,
+    description: ui.landing.desc,
+    url: `${SITE_URL}/${locale}/landing`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: productsData.catalogEntries.map((entry, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: entry.name,
+        description: entry.desc,
+        url: entry.href ? `${SITE_URL}${entry.href}` : undefined,
+      })),
+    },
+  };
+
+  const jsonLd = [breadcrumbSchema, collectionSchema];
+
   return (
     <div className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className={styles.gridBg} />
 
       <SubHeader breadcrumbs={[{ label: ui.nav.products }]} locale={locale} />

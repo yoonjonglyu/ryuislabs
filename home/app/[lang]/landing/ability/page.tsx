@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from '@/app/landing/ability/ability.module.css';
 import SubHeader from '@/components/common/SubHeader';
@@ -6,6 +7,7 @@ import { LOCALES, normalizeLocale } from '@/constants/i18n';
 import { getProductsData } from '@/constants/products';
 import { getCompanyTranslation } from '@/constants/translations/company';
 import { getUiTranslations } from '@/constants/translations/ui';
+import { SITE_URL, getAlternateLanguages, getBreadcrumbSchema } from '@/constants/seo';
 
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
@@ -15,6 +17,35 @@ interface AbilityHubProps {
   params: Promise<{ lang: string }>;
 }
 
+export async function generateMetadata({ params }: AbilityHubProps): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = normalizeLocale(lang);
+  const ui = getUiTranslations(locale);
+
+  const title = `ABILITY SERIES // ${ui.abilityHub.titleLine1}`;
+  const description = ui.abilityHub.desc;
+  const canonicalUrl = `${SITE_URL}/${locale}/landing/ability`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: getAlternateLanguages('/landing/ability'),
+    },
+    openGraph: {
+      title: `${title} | RyuisLabs`,
+      description,
+      url: canonicalUrl,
+      locale,
+    },
+    twitter: {
+      title: `${title} | RyuisLabs`,
+      description,
+    },
+  };
+}
+
 export default async function AbilityHub({ params }: AbilityHubProps) {
   const { lang } = await params;
   const locale = normalizeLocale(lang);
@@ -22,8 +53,38 @@ export default async function AbilityHub({ params }: AbilityHubProps) {
   const companyData = getCompanyTranslation(locale);
   const ui = getUiTranslations(locale);
 
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'RyuisLabs', url: `${SITE_URL}/${locale}` },
+    { name: ui.nav.products, url: `${SITE_URL}/${locale}/landing` },
+    { name: 'ABILITY SERIES', url: `${SITE_URL}/${locale}/landing/ability` },
+  ]);
+
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'ABILITY SERIES - RyuisLabs',
+    description: ui.abilityHub.desc,
+    url: `${SITE_URL}/${locale}/landing/ability`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: productsData.abilityAppList.map((app, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: app.name,
+        description: app.tagline,
+        url: `${SITE_URL}/${locale}/landing/ability/${app.slug}`,
+      })),
+    },
+  };
+
+  const jsonLd = [breadcrumbSchema, collectionSchema];
+
   return (
     <div className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className={styles.gridBg} />
 
       <SubHeader
@@ -60,35 +121,37 @@ export default async function AbilityHub({ params }: AbilityHubProps) {
                   {app.status === 'live' ? (
                     <span className={`${styles.rating} ${styles.mono}`}>{app.rating}</span>
                   ) : (
-                    <span className={`${styles.betaBadge} ${styles.mono}`}>{ui.abilityHub.closedBeta}</span>
+                    <span className={`${styles.soonBadge} ${styles.mono}`}>
+                      {ui.abilityHub.closedBeta}
+                    </span>
                   )}
                 </div>
 
-                <div className={`${styles.lineage} ${styles.mono}`}>{app.lineage}</div>
-                <h3>{app.name}</h3>
+                <h3>
+                  {app.name}
+                  {app.altName && <span className={styles.altName}> ({app.altName})</span>}
+                </h3>
+                <p className={styles.lineage}>{app.lineage}</p>
                 <p className={styles.tagline}>{app.tagline}</p>
-                <p className={styles.desc}>{app.desc}</p>
 
                 <div className={styles.cardActions}>
-                  {app.status === 'live' ? (
-                    <>
-                      <Link
-                        href={`/${locale}/landing/ability/${app.slug}`}
-                        className={`${styles.btn} ${styles.btnPrimary} ${styles.mono}`}
-                      >
-                        {ui.abilityHub.btnDetail}
-                      </Link>
-                      <a
-                        href={app.playUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${styles.btn} ${styles.btnGhost} ${styles.mono}`}
-                      >
-                        {ui.abilityHub.btnStore}
-                      </a>
-                    </>
+                  <Link
+                    href={`/${locale}/landing/ability/${app.slug}`}
+                    className={`${styles.cardBtn} ${styles.cardBtnPrimary} ${styles.mono}`}
+                  >
+                    {ui.abilityHub.btnDetail}
+                  </Link>
+                  {app.status === 'live' && app.playUrl ? (
+                    <a
+                      href={app.playUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${styles.cardBtn} ${styles.cardBtnGhost} ${styles.mono}`}
+                    >
+                      {ui.abilityHub.btnStore}
+                    </a>
                   ) : (
-                    <span className={`${styles.btn} ${styles.btnDisabled} ${styles.mono}`}>
+                    <span className={`${styles.cardBtn} ${styles.cardBtnDisabled} ${styles.mono}`}>
                       {ui.abilityHub.btnSoon}
                     </span>
                   )}

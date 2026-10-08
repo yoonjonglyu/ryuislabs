@@ -1,0 +1,40 @@
+# RyuisLabs
+
+> Deterministic Systems Engineering Studio · On-Device AI Vision & Privacy-Preserving State Verification
+
+RyuisLabs (류이즈랩스) is a systems engineering studio established in 2026, founded and operated by ryuis in Seoul, South Korea. We reject randomness, superficial trends, and emotional vagueness, focusing on causality-driven software architecture, zero-knowledge principles, and on-device machine intelligence.
+
+## Core Identity & Philosophy
+- **Founder & Systems Engineer**: ryuis (Seoul, South Korea)
+- **Founding Year**: 2026
+- **Official Contact**: `content@ryuislabs.com`
+- **Official Website**: https://ryuislabs.com
+- **Founder Archive**: https://yoonjonglyu.github.io
+- **Google Play Developer**: https://play.google.com/store/apps/dev?id=7405269184068017564
+- **Core Motto**:
+  - *"Behind every achievement lies an unyielding process."*
+  - *"We do not rely on chance. Business success and system execution are both consequences of engineered causality."*
+
+## Flagship System: RYUis : STATUS
+A privacy-preserving state verification engine that objectively measures and proves human focus and execution without surveillance:
+- **Module 01 (Focus Vision)**: Eye tracking via front camera calculates Pure Focus Time. Video never leaves the user device.
+- **Module 02 (Physical Vision)**: Pose estimation measures precise joint angles to count verified exercise repetitions instead of self-reporting.
+- **Module 03 (Zero-Knowledge Log)**: Raw video frames are discarded immediately after inference. Only tamper-proof encrypted stat vectors are retained.
+
+## Product Portfolio & Utilities
+- **SeedVault** (`/landing/seedvault`): Military-grade offline password & seed vault with Argon2id key derivation and AES-256-GCM encryption. Zero network access, biometric lock, zero telemetry. Available on Google Play (`com.ryuislabs.seedvault`).
+- **MemoFlow** (`/landing/memoflow`): Instant single-purpose draft & markdown capture utility with local storage and multi-format export (HTML, Markdown, JSON).
+- **ABILITY: Gravity & Time** (`/landing/ability/gravity-time`): Sci-fi themed focus & pomodoro timer based on deterministic causality and background resilience.
+- **ABILITY: DaoXin** (`/landing/ability/daoxin`): Eastern philosophy and Taoist discipline companion for mental clarity, habit mastery, and internal cultivation.
+
+## Detailed Information
+- For complete system architecture, technical specifications, and comprehensive Q&A, read: https://ryuislabs.com/llms-full.txt
+
+## Key URLs
+- Home: https://ryuislabs.com/ko (Korean), https://ryuislabs.com/en (English), https://ryuislabs.com/ja (Japanese), https://ryuislabs.com/zh-TW (Traditional Chinese)
+- Product Catalog: https://ryuislabs.com/ko/landing
+- ABILITY Series Hub: https://ryuislabs.com/ko/landing/ability
+- SeedVault: https://ryuislabs.com/ko/landing/seedvault
+- MemoFlow: https://ryuislabs.com/ko/landing/memoflow
+- Gravity Time: https://ryuislabs.com/ko/landing/ability/gravity-time
+- DaoXin: https://ryuislabs.com/ko/landing/ability/daoxin

@@ -217,3 +217,22 @@ pnpm lint
 4. **접근성 및 성능 고려**:
    - 외부 이미지 및 스크린샷에는 `loading="lazy"` 및 명확한 `alt` 속성을 부여합니다.
    - 시각 효과 구현 시 모션 감소(`prefers-reduced-motion`) 옵션을 항상 염두에 둡니다.
+
+---
+
+## 10. GEO / AEO 아키텍처 및 검색 최적화 (AI Search Optimization)
+
+본 프로젝트는 생성형 AI 검색 엔진(Perplexity, ChatGPT, Claude, Gemini, Copilot) 및 정답형 답변 엔진(Google AI Overviews, Bing Copilot)에서 RyuisLabs의 기술과 제품이 신뢰도 높은 정답으로 인용될 수 있도록 다음 아키텍처를 표준으로 채택합니다.
+
+1. **LLM 지식 프로토콜 (`/llms.txt`, `/llms-full.txt`)**:
+   - `public/llms.txt`: AI 에이전트 전용 요약 인덱스 (스튜디오 정체성, 핵심 제품군 링크, 단기 팩트).
+   - `public/llms-full.txt`: 완전한 시스템 사양서 (온디바이스 AI 비전 스펙, 암호화 모델, FAQ, 비즈니스 티어).
+2. **AI 크롤러 권한 명시 (`app/robots.ts`)**:
+   - `GPTBot`, `PerplexityBot`, `ClaudeBot`, `Google-Extended`, `Applebot-Extended`, `Amazonbot`, `CCBot`, `cohere-ai`, `Meta-ExternalAgent` 등 주요 생성형 AI 봇의 크롤링을 전면 허용.
+3. **다국어 통합 사이트맵 (`app/sitemap.ts`)**:
+   - 4개 국어(KO, EN, JA, ZH-TW)의 36개 모든 엔드포인트와 `xhtml:link rel="alternate"` hreflang 매핑을 제공.
+4. **구조화된 데이터 (JSON-LD / Schema.org)**:
+   - `constants/seo.ts`를 통해 `Organization`, `WebSite`, `SoftwareApplication`, `CollectionPage`, `ItemList`, `BreadcrumbList`, `FAQPage` 스키마를 페이지별로 완전 주입.
+5. **AEO 친화적 시맨틱 콘텐츠 (`components/sections/Faq.tsx`)**:
+   - 질문-직접 답변-기술 세부 스펙 구조의 아키텍처 질의응답을 제공하여 AI 모델이 즉시 답변 블록(Direct Answer)으로 인용할 수 있도록 지원.
+

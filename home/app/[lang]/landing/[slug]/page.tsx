@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import styles from '@/app/landing/[slug]/detail.module.css';
@@ -7,6 +8,13 @@ import { LOCALES, normalizeLocale } from '@/constants/i18n';
 import { getProductsData } from '@/constants/products';
 import { getCompanyTranslation } from '@/constants/translations/company';
 import { getUiTranslations } from '@/constants/translations/ui';
+import {
+  SITE_URL,
+  getAlternateLanguages,
+  getBreadcrumbSchema,
+  getSoftwareApplicationSchema,
+  getFaqSchema,
+} from '@/constants/seo';
 
 export function generateStaticParams() {
   const slugs = ['memoflow', 'seedvault'];
@@ -15,6 +23,42 @@ export function generateStaticParams() {
 
 interface ProductDetailPageProps {
   params: Promise<{ lang: string; slug: string }>;
+}
+
+export async function generateMetadata({ params }: ProductDetailPageProps): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const locale = normalizeLocale(lang);
+  const productsData = getProductsData(locale);
+  const product = productsData.standaloneProducts[slug];
+
+  if (!product) {
+    return { title: 'Product Not Found' };
+  }
+
+  const title = `${product.name} — ${product.tagline}`;
+  const description = product.intro || product.tagline;
+  const canonicalUrl = `${SITE_URL}/${locale}/landing/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: getAlternateLanguages(`/landing/${slug}`),
+    },
+    openGraph: {
+      title: `${title} | RyuisLabs`,
+      description,
+      url: canonicalUrl,
+      locale,
+      images: product.screenshots?.[0] ? [{ url: product.screenshots[0] }] : undefined,
+    },
+    twitter: {
+      title: `${title} | RyuisLabs`,
+      description,
+      images: product.screenshots?.[0] ? [product.screenshots[0]] : undefined,
+    },
+  };
 }
 
 export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
@@ -30,8 +74,47 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
     notFound();
   }
 
+  const pageUrl = `${SITE_URL}/${locale}/landing/${slug}`;
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'RyuisLabs', url: `${SITE_URL}/${locale}` },
+    { name: ui.nav.products, url: `${SITE_URL}/${locale}/landing` },
+    { name: product.name, url: pageUrl },
+  ]);
+
+  const softwareSchema = getSoftwareApplicationSchema(
+    {
+      name: product.name,
+      description: product.intro,
+      operatingSystem: 'Android',
+      applicationCategory: slug === 'seedvault' ? 'SecurityApplication' : 'ProductivityApplication',
+      playUrl: product.playUrl,
+      rating: product.rating,
+      reviews: product.reviews,
+      features: product.features,
+    },
+    pageUrl
+  );
+
+  const productFaqSchema = getFaqSchema([
+    {
+      question: `${product.name}의 핵심 목적과 작동 방식은 무엇인가요?`,
+      answer: `${product.intro} ${product.features.map((f) => `${f.title}: ${f.desc}`).join(' ')}`,
+    },
+    {
+      question: `${product.name}의 데이터는 어떻게 보관되나요?`,
+      answer: '데이터는 외부 원격 서버로 전송되지 않으며, 기기 내 로컬 샌드박스에만 보관됩니다.',
+    },
+  ]);
+
+  const jsonLd = [breadcrumbSchema, softwareSchema, productFaqSchema];
+
   return (
     <div className={styles.page} style={{ ['--accent' as string]: product.accent }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className={styles.gridBg} />
 
       <SubHeader
@@ -93,10 +176,10 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
       <section className={`${styles.wrap} ${styles.section}`}>
         <Reveal className={styles.featureGrid}>
           {product.features.map((f) => (
-            <div key={f.title} className={styles.feature}>
-              <div className={`${styles.featureTitle} ${styles.mono}`}>{f.title}</div>
+            <article key={f.title} className={styles.feature}>
+              <h3 className={`${styles.featureTitle} ${styles.mono}`}>{f.title}</h3>
               <p className={styles.featureDesc}>{f.desc}</p>
-            </div>
+            </article>
           ))}
         </Reveal>
       </section>
